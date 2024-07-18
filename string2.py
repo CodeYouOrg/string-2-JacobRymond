@@ -9,9 +9,11 @@
 # Return the resulting string.
 
 def verbing(s):
-    # +++your code here+++
-    return
-
+    if "ing" in s:
+        s += "ly"
+    elif len(s) >= 3:
+        s += "ing"
+    return s
 
 # E. not_bad
 # Given a string, find the first appearance of the
@@ -23,8 +25,13 @@ def verbing(s):
 # This dinner is good!
 
 def not_bad(s):
-    # +++your code here+++
-    return
+
+    if "not" in s and "bad" in s: 
+        indexNot = s.index("not")
+        indexBad = s.index("bad")
+        if indexBad > indexNot:
+            s = s[0:indexNot] + ("good") + s[indexBad + 3:len(s)]
+    return s
 
 
 # F. front_back
@@ -36,8 +43,11 @@ def not_bad(s):
 #  a-front + b-front + a-back + b-back
 
 def front_back(a, b):
-    # +++your code here+++
-    return
+    FrontA = a[:(len(a) + 1) // 2]
+    FrontB = b[:(len(b) + 1) // 2]
+    BackA = a[(len(a) + 1) // 2:]
+    BackB = b[(len(b) + 1) // 2:]
+    return FrontA + FrontB + BackA + BackB
 
 
 # Simple provided test() function used in main() to print
@@ -74,3 +84,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
